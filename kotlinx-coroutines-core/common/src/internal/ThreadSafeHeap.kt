@@ -26,9 +26,7 @@ public open class ThreadSafeHeap<T> : SynchronizedObject() where T: ThreadSafeHe
 
     private val _size = atomic(0)
 
-    public var size: Int
-        get() = _size.value
-        private set(value) { _size.value = value }
+    public var size: Int by _size
 
     public val isEmpty: Boolean get() = size == 0
 
